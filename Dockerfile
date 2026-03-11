@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     python-is-python3 \
     curl \
     libreadline-dev \
+    gh \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i -e '8d' /usr/riscv64-linux-gnu/include/gnu/stubs.h

@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y \
     scons \
     libunwind-dev \
     liblzma-dev \
+    make \
+    build-essential \
+    git \
+    python3 \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i -e '8d' /usr/riscv64-linux-gnu/include/gnu/stubs.h

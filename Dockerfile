@@ -14,6 +14,4 @@ RUN apt-get update && apt-get install -y \
     liblzma-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Remove the __riscv_float_abi_soft stub definition that causes build errors
-# when cross-compiling for RISC-V targets that use a different float ABI.
 RUN sed -i -e '8d' /usr/riscv64-linux-gnu/include/gnu/stubs.h

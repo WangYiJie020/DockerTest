@@ -23,6 +23,15 @@ RUN apt-get update && apt-get install -y \
     sudo \
     wget \
     cmake \
+    lsb-release \
     && rm -rf /var/lib/apt/lists/*
+
+RUN wget 'https://apt.llvm.org/llvm.sh' -O /tmp/llvm.sh > /dev/null \
+    && chmod +x /tmp/llvm.sh \
+    && sudo /tmp/llvm.sh 21 > /dev/null \
+    && sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-21 100 \
+	&& sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-21 100 \
+	&& sudo update-alternatives --set clang /usr/bin/clang-21 \
+	&& sudo update-alternatives --set clang++ /usr/bin/clang++-21
 
 RUN sed -i -e '8d' /usr/riscv64-linux-gnu/include/gnu/stubs.h

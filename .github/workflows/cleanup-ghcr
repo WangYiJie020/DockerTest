@@ -1,0 +1,16 @@
+name: cleanup-ghcr
+on:
+  schedule:
+    - cron: "0 3 * * 0"   # 每周清理
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: snok/container-retention-policy@v3
+        with:
+          account: WangYiJie020
+          token: ${{ secrets.PAT }}
+          image-names: ${{ github.repository }}
+          cut-off: 7d
+          keep-n-most-recent: 3

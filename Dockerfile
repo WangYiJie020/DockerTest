@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     wget \
     cmake \
+	openjdk-21-jdk \
     lsb-release software-properties-common gnupg \
     && rm -rf /var/lib/apt/lists/*
 

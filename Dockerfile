@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     wget \
     cmake \
-    lsb-release \
+    lsb-release software-properties-common gnupg \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget 'https://apt.llvm.org/llvm.sh' -O /tmp/llvm.sh > /dev/null \
